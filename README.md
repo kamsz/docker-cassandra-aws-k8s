@@ -6,4 +6,4 @@ It adds:
 * JNA.
 * Automatic rack detection (based on availability zone) using metadata server.
 * Ability to provide cassandra.yaml via ConfigMap (https://github.com/docker-library/cassandra/pull/129).
-* Ability to provide
+* Ability to provide jvm.options via ConfigMap.
