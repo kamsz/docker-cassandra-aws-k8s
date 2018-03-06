@@ -41,9 +41,9 @@ if [ "$1" = 'cassandra' ]; then
     cp $CASSANDRA_JVM_TEMPLATE_DIR/jvm.options $CASSANDRA_CONFIG/jvm.options
   fi
 
-	if [ -f "$CASSANDRA_CONFIG_TEMPLATE_DIR/$HOSTNAME.tokens" ]; then
-		sed -i "s/#initial_token:/initial_token: $(cat $CASSANDRA_CONFIG_TEMPLATE_DIR/$HOSTNAME.tokens)/" "$CASSANDRA_CONFIG/cassandra.yaml"
-	fi
+if [ -f "$CASSANDRA_CONFIG_TEMPLATE_DIR/$HOSTNAME.tokens" ]; then
+	sed -i "s/# initial_token:/initial_token: $(cat $CASSANDRA_CONFIG_TEMPLATE_DIR/$HOSTNAME.tokens)/" "$CASSANDRA_CONFIG/cassandra.yaml"
+fi
 
 	sed -ri 's/(- seeds:).*/\1 "'"$CASSANDRA_SEEDS"'"/' "$CASSANDRA_CONFIG/cassandra.yaml"
 
